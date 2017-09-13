@@ -1,0 +1,12 @@
+<!--<ul>
+  <li *ngFor="let post of posts" >
+    <a (click)="selectPost(post.slug)">{{ post.title.rendered }}</a>
+  </li>
+</ul>-->
+
+<li *ngFor="let post of posts">
+  <a *ngIf="post.video_type == 1" href= "{{ post.video_url }}?width=560&height=315" ><img class="thumb" src= "{{ post.featured_image_url_th }}" alt="" /></a>
+  <a *ngIf="post.video_type == 2" href= "{{ post.featured_image_url_full }}" ><img class="thumb" src= "{{ post.featured_image_url_th }}" alt="" /></a>
+  <h3>{{ post.title.rendered }}</h3>
+  <div [innerHTML]= post.content.rendered></div>
+</li>

@@ -1,0 +1,19 @@
+<div id="content">
+      <div id="contentBox">
+			<div id="contentBoxContainer" *ngIf="about" >
+                        <h1 class="caption">ABOUT</h1>
+                        <div class="divider"></div>
+                        <img src="assets/images/about.png" width="600" height="350">
+
+                        <div class="divider"></div>
+                        <h4>{{ about.title.rendered }}</h4>
+                        <div class="divider" style="height:13px"></div>
+      <!--{{about.content.rendered | plainText}}-->
+                        <div [innerHTML] = about.content.rendered></div>
+                        <hr class="seperator" /> 
+                        <div class="clearfix"></div>
+                  </div>
+      
+	</div>
+</div>
+	

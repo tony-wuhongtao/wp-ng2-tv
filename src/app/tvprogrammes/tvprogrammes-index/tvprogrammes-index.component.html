@@ -1,0 +1,46 @@
+<ul *showItDevice="['smarttv','desktop']" id="bgImages">
+  <li *ngFor="let tvp of tvps">
+    <a *ngIf="tvp.video_type == 0" href= "{{ tvp.featured_image_url_th }}" ><img class="thumb" src= "{{tvp.featured_image_url_th }}" alt="" /></a>
+
+    <a *ngIf="tvp.video_type == 1" href= "{{ tvp.video_url }}?width=560&height=315" class="li-live"><img class="thumb" src= "{{ tvp.featured_image_url_th }}" alt="" /></a>
+
+    <a *ngIf="tvp.video_type == 2" href="{{ tvp.featured_image_url_th }}" class="li-live"><img class="thumb" src="{{tvp.featured_image_url_th }}" alt="" /></a>
+        <div *ngIf="tvp.video_type == 2" class="has_video" style="display: none;">{{ tvp.video_url }}</div>
+
+    <a *ngIf="tvp.video_type == 3" href="{{ tvp.featured_image_url_th }}" class="li-vod"><img class="thumb" src="{{tvp.featured_image_url_th }}" alt="" /></a>
+        <div *ngIf="tvp.video_type == 3" class="has_video" style="display: none;">{{ tvp.video_url }}</div>  
+
+    <a *ngIf="tvp.video_type == 4" href="{{ tvp.featured_image_url_th }}" class="li-live"><img class="thumb" src="{{tvp.featured_image_url_th }}" alt="" /></a>
+        <div *ngIf="tvp.video_type == 4" class="has_video" style="display: none;">{{ tvp.video_url }}</div>
+
+
+
+    <h3>{{ tvp.title.rendered }}</h3>
+    <div [innerHTML]= tvp.content.rendered></div>
+  </li>
+</ul>
+
+<!-- below for mobile -->
+
+<ul *showItDevice="['mobile','tablet']" class="portfolio-image">
+    <li *ngFor="let tvp of tvps" class="col-md-6">
+    <!-- youtube live with backgroud player -->
+        <iframe *ngIf="tvp.video_type == 1" [src]="getSafeURL(tvp.video_mobile_url)" width="315" height="185" frameborder="0" allowfullscreen></iframe>
+    <!--  youtube vod in box player-->
+        <iframe *ngIf="tvp.video_type == 2" [src]="getSafeURL(tvp.video_mobile_url)" width="315" height="185" frameborder="0" allowfullscreen></iframe>
+    <!--  polyv vod-->
+        <div *ngIf="tvp.video_type == 3" id="polyv-{{ tvp.video_mobile_url }}" class="polyv-video"></div>
+        <div *ngIf="tvp.video_type == 3" class="has_video" style="display: none;">{{ tvp.video_mobile_url }}</div>
+    <!--  polyv live -->
+        <div *ngIf="tvp.video_type == 4" id="polyv-{{ tvp.video_mobile_url }}" class="polyv-video"></div>
+        <div *ngIf="tvp.video_type == 4" class="has_video" style="display: none;">{{ tvp.video_mobile_url }}</div>
+        <div *ngIf="tvp.video_type == 4" class="has_image" style="display: none;">assets/mobile/images/bon_tv.jpg</div>
+        
+
+        <h3>{{ tvp.title.rendered }}</h3>
+        <div [innerHTML]= tvp.content.rendered></div>
+
+    </li>
+  
+
+</ul>

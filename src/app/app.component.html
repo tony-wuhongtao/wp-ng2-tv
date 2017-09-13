@@ -1,20 +1,232 @@
-<!--The whole content below can be removed with the new code.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- BEGIN: Body Wrapper -->
+<div *showItDevice="['smarttv','desktop']" id="body-wrapper">
+	<!-- BEGIN: Main Elements; Please don't change these elements -->
+	<div id="bgImage"><div id="bgImageWrapper"></div></div>
+	<div id="bgPattern"></div>
+	<div id="videoExpander">
+	</div>
+	
+	<div id="bgText">
+		<!-- <div id="embVideo"></div> -->
+		<div class="headerText"></div><br/>
+		<div class="subText"></div>
+		<div style="clear:both"></div>
+		
+	</div>
+	<router-outlet (activate)="loadpage()"></router-outlet>
+	<!--<div id="content">
+		<div id="contentBox">
+			<div id="contentBoxContainer">
+				
+			</div>
+		</div>
+	</div>-->
+	<div id="contentBoxScroll">
+		<a id="closeButton" routerLink="/"></a>
+		<div class="dragcontainer">
+			<div id="contentBoxScrollDragger" class="dragger">
+				<div class="scroll_up"></div>
+				<div class="scroll_down"></div>
+			</div>
+		</div>
+	</div>
+	<div id="content-video">
+		<div id="contentBox-video">
+			<div id="contentBoxContainer-video">
+			</div>
+		</div>
+	</div>
 
+	
+    <app-tvprogrammes-index></app-tvprogrammes-index>
+
+
+	<!-- BEGIN: Main Menu -->
+	<div id="menu-container">
+		<!-- BEGIN: Logo -->
+		<div id="logo">
+			<img src="assets/images/bon_tv_logo.png" title="BON TV" />
+		</div>
+		<div class="clearfix"></div>
+		<!--END: Logo -->
+	
+		<!-- 
+			// Menu classes must be used with the same hierarchy and the same class names
+		-->
+		<div id="mainmenu">
+			<div class="menu-header">
+			<ul id="menu-main-menu" class="menu">
+				<li id="menu-item-1">
+					<a href="/"><span class="title">HOME</span></a>
+				</li>
+					<!-- When using submenu ul tag must include class="sub-menu" -->
+				<!--<li id="menu-item-2">
+					<a href="#"><span class="title">CATEGORIES</span></a>
+					<ul class="sub-menu">
+						<app-tvcategories-menu></app-tvcategories-menu>
+					</ul>
+				</li>-->
+				<li id="menu-item-3">
+					<a routerLink="/about-bon-tv"><span class="title">ABOUT BON TV</span></a>
+				</li>
+				<li id="menu-item-4">
+					<a href="http://premium.bon-cloud.net" target="_blank"><span class="title">Premium @BON Cloud</span></a>
+				</li>
+				<li id="menu-item-5"><a routerLink="/contact"><span class="title">CONTACT</span></a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+	<!-- END: Main Menu -->
+
+
+	<!-- BEGIN: Footer -->
+	<div id="footer">
+		<!-- BEGIN: Share Buttons -->
+		<div id="share">
+			<ul>
+				<li><a class="btnCtrl tip fb" target="_blank" href="https://www.facebook.com/boncpchinavideo" tip-text="Facebook"></a></li>
+				 <li><a class="btnCtrl tip tw" target="_blank" href="https://twitter.com/boncpchinavideo" tip-text="Twitter"></a></li> 
+				<!--<li><a class="btnCtrl tip yt" href="#" tip-text="youtube"></a></li>-->
+				<!-- <li><a class="btnCtrl tip rss" href="http://www.renklibeyaz.com/true?feed=rss" tip-text="RSS"></a></li> -->
+			</ul>		
+		</div>
+		<!-- END: Share Buttons -->
+		<div id="footertext"> Copyright &copy; 2017 <span class="textlight">BON </span>TV</div>
+		<div id="footeraudio">
+			<a class="btnCtrl tip soundicon" href="javascript:void(0);" tip-text="Mute Sound"></a>
+			<a class="btnCtrl tip soundmute" href="javascript:void(0);" tip-text="UnMute Sound"></a>
+			<!-- <a class="btnCtrl tip soundplaylist" href="javascript:void(0);" onclick="playListShow();" tip-text="UnMute Sound"></a> -->
+		</div>
+	</div>
+	<!-- END: Footer -->
+	
+	
+	
+	<!-- BEGIN: Background Controller Buttons -->
+	<div id="bgControl">
+		<div id="bgControlCount"></div>
+		<div id="bgControlButtons">
+			<a class="btnCtrl prev" href="javascript:void(0);" onclick="prevBg()"></a>
+			<a class="btnCtrl play" href="javascript:void(0);" onclick="playBg()"></a>
+			<a class="btnCtrl pause" href="javascript:void(0);" onclick="pauseBg()"></a>
+			<a class="btnCtrl next" href="javascript:void(0);" onclick="nextBg()"></a>
+			<a class="btnCtrl fitte" href="javascript:void(0);" onclick="setFit()"></a>
+			<a class="btnCtrl full" href="javascript:void(0);" onclick="setFull()"></a>
+			<a class="btnCtrl soundicon" href="javascript:void(0);" onclick="videoMute()"></a>
+			<a class="btnCtrl soundmute" href="javascript:void(0);" onclick="videoUnMute()"></a>
+			<a class="btnCtrl info" href="javascript:void(0);" onclick="setInfo()"></a>
+			<a class="btnCtrl close" href="javascript:void(0);" onclick="setMin()"></a>
+		</div>
+	</div>
+	<!-- END: Background Controller Buttons -->
+	
+	<!-- BEGIN: Please don't remove these elements -->
+	<div id="fullControl"></div>
+	<a href="javascript:void(0);" id="thumbOpener"></a>
+	<!-- END -->
+	
+</div>
+
+<div *showItDevice="['smarttv','desktop']" id="bodyLoading">
+	<div id="loading">
+		<!-- You can change loading logo -->
+		<img src="assets/images/logo.jpg" width="552" height="552" alt="Bon TV" />
+		<div>
+			<img class="load-image" alt="logo" src="assets/images/loading.svg">
+		</div>
+	</div>
+</div>
+<!-- END: First Loading -->
+
+<!-- BEGIN: Please don't remove or change these elements -->
+<canvas *showItDevice="['smarttv','desktop']" id="circleC" width="100" height="100"></canvas>
+<div *showItDevice="['smarttv','desktop']" id="REF_ColorFirst"></div>
+<div *showItDevice="['smarttv','desktop']" id="REF_ColorSecond"></div>
+<!-- END:  -->
+
+<!-- below for mobile -->
+<div *showItDevice="['mobile','tablet']" id="preloader">
+  <div id="status">
+    <img alt="logo" src="assets/mobile/images/logo.jpg">
+    <img class="load-image" alt="logo" src="assets/mobile/images/loading.svg">
+  </div>
+</div>
+<!--/.PRELOADER END-->
+
+<!--HEADER -->
+<div *showItDevice="['mobile','tablet']" class="header">
+  <div class="for-sticky">
+    <!--LOGO-->
+    <div class="col-md-2 col-xs-6 logo">
+      <a href="/"><img alt="logo" class="logo-nav" src="assets/mobile/images/bon_tv_logo.png"></a>
+    </div>
+    <!--/.LOGO END-->
+  </div>
+  <div class="menu-wrap">
+    <nav class="menu">
+      <div class="menu-list">
+        <a href="/" class="active">
+          <span>Home</span>
+        </a>
+        <a href="assets/mobile/about.html">
+          <span>About BON TV</span>
+        </a>
+        <a href="http://premium.bon-cloud.net" target="_blank">
+          <span>Premium</span>
+        </a>
+        <a href="assets/mobile/contact.html">
+          <span>Contact</span>
+        </a>
+      </div>
+    </nav>
+    <button class="close-button" id="close-button">Close Menu</button>
+  </div>
+  <button class="menu-button" id="open-button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button><!--/.for-sticky-->
+</div>
+<!--/.HEADER END-->
+
+<!--CONTENT WRAP-->
+<div *showItDevice="['mobile','tablet']" class="content-wrap">
+  <!--CONTENT-->
+  <div class="content">
+
+    <!--WORK-->
+    <section class="grey-bg mar-tm-10" id="work">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-9 content-right">
+            <!--PORTFOLIO IMAGE-->
+            
+			<app-tvprogrammes-index></app-tvprogrammes-index>
+
+            <!--/.PORTFOLIO IMAGE END-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/.WORK END-->
+
+    <!--FOOTER-->
+    <footer>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <a class="btnCtrl tip tw" href="https://twitter.com/boncpchinavideo" tip-text="Facebook"><img src="assets/mobile/images/person-twitter.png"></a>
+            <a class="btnCtrl tip fb" href="https://www.facebook.com/boncpchinavideo" tip-text="Twitter"><img src="assets/mobile/images/person-facebook.png"></a>
+            <div id="footertext"> Copyright &copy; 2017 <span class="textlight">BON </span>TV & Cloud</div>
+		  </div>
+        </div>
+      </div>
+    </footer>
+    <!--/.FOOTER-END-->
+
+  <!--/.CONTENT END-->
+  </div>
+<!--/.CONTENT-WRAP END-->
+</div>
